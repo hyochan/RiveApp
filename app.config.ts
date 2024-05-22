@@ -83,9 +83,6 @@ export default ({config}: ConfigContext): ExpoConfig => ({
   },
   assetBundlePatterns: ['**/*'],
   userInterfaceStyle: 'automatic',
-  locales: {
-    ko: './assets/langs/ios/ko.json',
-  },
   ios: {
     buildNumber: buildNumber.toString(),
     bundleIdentifier: 'io.riveapp',
