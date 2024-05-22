@@ -36,6 +36,7 @@ export default function Index(): JSX.Element {
       />
       <Content>
         <Rive
+          autoplay={false}
           onError={(riveError: RNRiveError) => {
             switch (riveError.type) {
               case RNRiveErrorType.IncorrectRiveFileUrl: {
@@ -123,6 +124,7 @@ export default function Index(): JSX.Element {
           resourceName="facial_expression_demo"
           stateMachineName="State Machine 1"
           style={{width: 400, height: 400}}
+
           // url="https://public.rive.app/community/runtime-files/2195-4346-avatar-pack-use-case.riv"
           // url="https://seongjangi.dooboo.io/rive/facial_expression_demo.riv"
         />
@@ -139,30 +141,33 @@ export default function Index(): JSX.Element {
         >
           <Button
             onPress={() => {
-              ref.current?.reset();
-              ref.current?.setInputState('State Machine 1', 'Smile', 30);
+              ref.current?.stop();
+              ref.current?.setInputState('State Machine 1', 'Smile', 999);
+              ref.current?.play();
+              // setTimeout(() => {
+              //   ref.current?.stop();
+              // }, 999);
             }}
             text="Smile"
           />
           <Button
             onPress={() => {
-              ref.current?.reset();
-              ref.current?.setInputState('State Machine 1', 'Sad', 30);
+              ref.current?.stop();
+              ref.current?.setInputState('State Machine 1', 'Sad', 999);
+              ref.current?.play();
             }}
             text="Sad"
           />
           <Button
             onPress={() => {
-              ref.current?.reset();
-              ref.current?.setInputState('State Machine 1', 'Happy', 30);
-              // ref.current?.play('Happy', LoopMode.PingPong);
+              ref.current?.setInputState('State Machine 1', 'Happy', 999);
             }}
             text="Happy"
           />
           <Button
             onPress={() => {
-              ref.current?.reset();
-              ref.current?.setInputState('State Machine 1', 'Surprise', 30);
+              ref.current?.setInputState('State Machine 1', 'Surprise', 999);
+              ref.current?.play();
               // ref.current?.play(
               //   'Sad_pose',
               //   LoopMode.Loop,
@@ -174,8 +179,8 @@ export default function Index(): JSX.Element {
           />
           <Button
             onPress={() => {
-              ref.current?.reset();
-              ref.current?.setInputState('State Machine 1', 'Neutral', 30);
+              ref.current?.setInputState('State Machine 1', 'Neutral', 999);
+              ref.current?.play();
             }}
             text="Neutral"
           />
